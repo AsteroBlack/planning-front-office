@@ -70,6 +70,26 @@ function calculateEmployeeScore(
     return -1000;
   }
 
+  // Règles stagiaires
+  if (employee.isIntern) {
+    // Stagiaires ne travaillent pas le weekend
+    if (isWeekend(date)) {
+      return -1000;
+    }
+    // Stagiaires ne peuvent pas être OA principal
+    if (shift === ShiftType.OA_PRINCIPAL) {
+      return -1000;
+    }
+    // Stagiaires ne peuvent pas être desk après-midi ou nuit
+    if (shift === ShiftType.DESK_AFTERNOON || shift === ShiftType.DESK_NIGHT) {
+      return -1000;
+    }
+    // Stagiaires ne font pas OA weekend
+    if (shift === ShiftType.OA_WEEKEND) {
+      return -1000;
+    }
+  }
+
   // En repos forcé après nuit
   if (state.daysOffAfterNight > 0) {
     return -500;

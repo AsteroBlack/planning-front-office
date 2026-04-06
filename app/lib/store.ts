@@ -19,16 +19,17 @@ interface PlanningStore {
 
 // Employés par défaut depuis SPEC.md
 const defaultEmployees: Employee[] = [
-  { id: '1', name: 'RODRIC', isAvailable: true, isOnLeave: false },
-  { id: '2', name: 'MARIAM', isAvailable: true, isOnLeave: false },
-  { id: '3', name: 'MICHELLE', isAvailable: true, isOnLeave: false },
-  { id: '4', name: 'FREDERIC', isAvailable: true, isOnLeave: false },
-  { id: '5', name: 'AYMARD', isAvailable: true, isOnLeave: false },
-  { id: '6', name: 'BOSSOU', isAvailable: true, isOnLeave: false },
-  { id: '7', name: 'ASSALE', isAvailable: true, isOnLeave: false },
-  { id: '8', name: 'HILLI', isAvailable: true, isOnLeave: false },
-  { id: '9', name: 'EMMANUEL', isAvailable: true, isOnLeave: false },
-  { id: '10', name: 'CHRISTOPHER', isAvailable: true, isOnLeave: false },
+  { id: '1', name: 'RODRIC', isAvailable: true, isOnLeave: false, isIntern: false },
+  { id: '2', name: 'MARIAM', isAvailable: true, isOnLeave: false, isIntern: false },
+  { id: '3', name: 'MICHELLE', isAvailable: true, isOnLeave: false, isIntern: false },
+  { id: '4', name: 'FREDERIC', isAvailable: true, isOnLeave: false, isIntern: false },
+  { id: '5', name: 'AYMARD', isAvailable: true, isOnLeave: false, isIntern: true },
+  { id: '6', name: 'BOSSOU', isAvailable: true, isOnLeave: false, isIntern: false },
+  { id: '7', name: 'ASSALE', isAvailable: true, isOnLeave: false, isIntern: false },
+  { id: '8', name: 'HILLI', isAvailable: true, isOnLeave: false, isIntern: false },
+  { id: '9', name: 'EMMANUEL', isAvailable: true, isOnLeave: false, isIntern: true },
+  { id: '10', name: 'CHRISTOPHER', isAvailable: true, isOnLeave: false, isIntern: false },
+  { id: '11', name: 'ANNA-MURIELLE', isAvailable: true, isOnLeave: false, isIntern: false },
 ];
 
 // Groupes OA par défaut depuis SPEC.md
@@ -63,6 +64,7 @@ export const usePlanningStore = create<PlanningStore>()(
           name: name.toUpperCase(),
           isAvailable: true,
           isOnLeave: false,
+          isIntern: false,
         };
         set((state) => ({
           employees: [...state.employees, newEmployee],

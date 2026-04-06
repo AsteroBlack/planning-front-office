@@ -5,6 +5,7 @@ export interface Employee {
   name: string;
   isAvailable: boolean;
   isOnLeave: boolean;
+  isIntern: boolean; // Stagiaire: pas OA principal, pas desk aprèm/nuit, pas weekend
 }
 
 export enum Pod {
